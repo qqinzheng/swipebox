@@ -20,7 +20,8 @@
 	<link rel="stylesheet" href="src/css/swipebox.css">
 	<title>Swipebox | A touchable jQuery lightbox</title>
 	<!-- share buttons -->
-	<script type="text/javascript">(function(doc, script) {
+	<script type="text/javascript">
+	(function(doc, script) {
 		var js, 
 		fjs = doc.getElementsByTagName(script)[0],
 		add = function(url, id) {
@@ -29,8 +30,9 @@
 		js.src = url;
 		id && (js.id = id);
 		fjs.parentNode.insertBefore(js, fjs);
-		};add("//connect.facebook.net/en_US/all.js#xfbml=1", "facebook-jssdk");
-		add("//platform.twitter.com/widgets.js", "twitter-wjs");
+	};
+	add("//connect.facebook.net/en_US/all.js#xfbml=1", "facebook-jssdk");
+	add("//platform.twitter.com/widgets.js", "twitter-wjs");
 		}(document, "script"));
 	</script>
 	<!-- end share buttons -->
@@ -84,23 +86,47 @@
 			<div id="try"></div>
 			<ul id="box-container">
 				<li class="box">
-					<a href="http://swipebox.csag.co/images/image-1.jpg" class="swipebox" title="Fog">
+					<a rel="gallery-1" href="http://swipebox.csag.co/images/image-1.jpg" class="swipebox" title="Fog">
 						<img src="http://swipebox.csag.co/images/image-1.jpg" alt="image">
 					</a>
 				</li>
-				<li class="box">
-					<a href="http://swipebox.csag.co/images/image-2.jpg" class="swipebox" title="City">
+				<li  class="box">
+					<a rel="gallery-1" href="http://swipebox.csag.co/images/image-2.jpg" class="swipebox" title="City">
 						<img src="http://swipebox.csag.co/images/image-2.jpg" alt="image">
 					</a>
 				</li>
 				<li class="box">
-					<a href="http://swipebox.csag.co/images/image-3.jpg" class="swipebox" title="Street">
-						<img src="http://swipebox.csag.co/images/image-3.jpg" alt="image">
+					<a rel="gallery-2" href="http://swipebox.csag.co/images/image-3.jpg" class="swipebox" title="Street">
+						<img  src="http://swipebox.csag.co/images/image-3.jpg" alt="image">
 					</a>
 				</li>
 				<li class="box">
-					<a href="http://swipebox.csag.co/images/image-4.jpg" class="swipebox" title="Mustache Guy">
+					<a rel="gallery-2" href="http://swipebox.csag.co/images/image-4.jpg" class="swipebox" title="Mustache Guy">
 						<img src="http://swipebox.csag.co/images/image-4.jpg" alt="image">
+					</a>
+				</li>
+
+				<li class="box">
+					<a href="http://swipebox.csag.co/images/image-1.jpg" class="swipebox" title="Fog">
+						<img src="http://swipebox.csag.co/images/image-1.jpg" alt="image">
+					</a>
+				</li>
+
+				<li class="box">
+					<a href="http://swipebox.csag.co/images/image-1.jpg" class="swipebox" title="Fog">
+						<img src="http://swipebox.csag.co/images/image-1.jpg" alt="image">
+					</a>
+				</li>
+
+				<li class="box">
+					<a href="http://swipebox.csag.co/images/image-1.jpg" class="swipebox" title="Fog">
+						<img src="http://swipebox.csag.co/images/image-1.jpg" alt="image">
+					</a>
+				</li>
+
+				<li class="box">
+					<a href="http://swipebox.csag.co/images/image-1.jpg" class="swipebox" title="Fog">
+						<img src="http://swipebox.csag.co/images/image-1.jpg" alt="image">
 					</a>
 				</li>
 			</ul>
@@ -249,7 +275,7 @@ $( '#gallery' ).click( function( e ) {
 	</footer>
 	<script src="lib/ios-orientationchange-fix.js"></script>
 	<script src="lib/jquery-2.1.0.min.js"></script>
-	<script src="src/js/jquery.swipebox.js"></script>
+	<script src="src/js/jquery.swipebox2.js"></script>
 	<script type="text/javascript">
 	$( document ).ready(function() {
 
@@ -267,7 +293,17 @@ $( '#gallery' ).click( function( e ) {
 					{ href : 'http://swipebox.csag.co/images/image-2.jpg', title : 'My Second Caption' }
 				] );
 			} );
+			// $(document.body).bind('touchstart',function() {
+			// 	alert(123);
+			// })
 
+			// $(document.body).bind('touchend',function() {
+			// 	alert(456);
+			// })
+
+			document.addEventListener('touchmove', function(e) {
+				   document.body.innerText = e;
+			});
       });
 	</script>
 </body>
